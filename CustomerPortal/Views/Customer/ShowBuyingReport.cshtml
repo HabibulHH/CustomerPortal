@@ -1,0 +1,85 @@
+﻿@model CustomerPortal.Models.BuyingReportVM
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        @using (@Html.BeginForm("ShowBuyingReport", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+
+            <table class="table table-responsive">
+                <caption>Search Customers Payment</caption>
+                <tr>
+
+                    <td> <label for="Customer_Table_Id">Customer Id</label></td>
+                    <td>
+                        @Html.DropDownListFor(m => m.searchPayment.PayingCustomerId,
+                            new SelectList(Model.Customers, "CustomerID", "CustomerID"), "Select Customer ID"
+                            )
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> Start date</label>
+                </td>
+                <td>@Html.EditorFor(model => model.searchPayment.StartDate, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>
+                    <label> End Date date</label>
+                </td>
+                <td>@Html.EditorFor(model => model.searchPayment.EndDate, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" class="btn btn-success pull-left" id="save" value="Search" name="save" />
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+</div>
+<h1>
+    Total:@if (ViewBag.Total != null)
+    {
+        @ViewBag.Total
+    }
+</h1>
+<table id="paymentRecords" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var buying in Model.customerBuying)
+        {
+            <tr>
+                <td>@buying.BuyingCustomerId</td>
+                <td>@buying.Amount</td>
+                <td>@buying.BuyingDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#paymentRecords").DataTable();
+            $('input[type=datetime]').datepicker({
+                dateFormat: "dd/M/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+    </script>
+}

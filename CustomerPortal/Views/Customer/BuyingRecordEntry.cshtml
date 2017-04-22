@@ -1,0 +1,60 @@
+﻿@model CustomerPortal.Models.CustomerBuyingViewModel
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@if (ViewBag.Message != null)
+{
+    @ViewBag.Message
+}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+        <div class="container" style="margin-top: 50px">
+           
+            @using (@Html.BeginForm("BuyingRecordEntry", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.BuyingRecord.BuyingCustomerId);
+                    @Html.DropDownListFor(m => m.BuyingRecord.BuyingCustomerId,
+                         new SelectList(Model.Customers, "CustomerID", "CustomerID"), "Select Customer ID",
+                        new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.BuyingRecord.BuyingCustomerId)
+                </div>
+
+                <div class="form-group">
+
+                    @Html.LabelFor(m => m.BuyingRecord.Amount)
+                    @Html.TextBoxFor(m => m.BuyingRecord.Amount, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.BuyingRecord.Amount)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BuyingRecord.BuyingDate)<br />
+                    @Html.EditorFor(model => model.BuyingRecord.BuyingDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.BuyingRecord.BuyingDate)
+                </div>
+
+                <input type="submit" class="btn btn-success" id="save" value="Save" name="save" />
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=datetime]').datepicker({
+                dateFormat: "dd/M/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+
+        });
+    </script>
+
+}  

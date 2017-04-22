@@ -1,0 +1,70 @@
+﻿
+<link href="~/Content/CusntomerEntry.css" rel="stylesheet" />
+<div class="container">
+    <div class="row main">
+        <div class="main-login main-center">
+            
+            <form class="" method="post" action="@Url.Action("Save","Customer")">
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Customer Name</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="name"  required id="name" placeholder="Enter your Name" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="MobileNumber" class="cols-sm-2 control-label">Mobile</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" required="" name="MobileNumber" id="MobileNumber" placeholder="Enter your Mobile"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CustomerID" class="cols-sm-2 control-label">ID</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" required="" name="CustomerID" id="CustomerID" placeholder="Enter Id" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Region" class="cols-sm-2 control-label">Region</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" required name="Region" id="Region" placeholder="Enter your region" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CustomerType" class="cols-sm-2 control-label">Customer Type</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" required name="CustomerType" id="CustomerType" placeholder="Enter customer type" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Balance" class="cols-sm-2 control-label">Customer Balance</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="Balance" id="Balance" placeholder="Give Customer Balance" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <button id="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
