@@ -1,0 +1,30 @@
+namespace CustomerPortal.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class dailySalesModelAdded1 : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.DailySales",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Total = c.Double(nullable: false),
+                        SalesDate = c.DateTime(nullable: false),
+                        OnCashSale = c.Double(nullable: false),
+                        OnDueSale = c.Double(nullable: false),
+                        Collection = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+        }
+        
+        public override void Down()
+        {
+            DropTable("dbo.DailySales");
+        }
+    }
+}
