@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201704220650114_dailySalesModelAdded1.Designer.cs">
       <DependentUpon>201704220650114_dailySalesModelAdded1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707010658517_InitialMigrations.cs" />
+    <Compile Include="Migrations\201707010658517_InitialMigrations.Designer.cs">
+      <DependentUpon>201707010658517_InitialMigrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BuyingReportVM.cs" />
@@ -231,6 +235,7 @@
     <Compile Include="Models\SearchPayment.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\ShowreportViewModel.cs" />
+    <Compile Include="Models\YearlySalesvm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -605,6 +610,7 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <None Include="Properties\PublishProfiles\CustomerPortal.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -710,6 +716,8 @@
     <Content Include="Views\Customer\ShowBuyingReport.cshtml" />
     <Content Include="Views\Sales\DailySalesEntry.cshtml" />
     <Content Include="Views\Sales\SalesReport.cshtml" />
+    <Content Include="Views\Sales\YearlySalesResult.cshtml" />
+    <Content Include="Views\Customer\EditCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704210445509_customerModelAdded.resx">
@@ -738,6 +746,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704220650114_dailySalesModelAdded1.resx">
       <DependentUpon>201704220650114_dailySalesModelAdded1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707010658517_InitialMigrations.resx">
+      <DependentUpon>201707010658517_InitialMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

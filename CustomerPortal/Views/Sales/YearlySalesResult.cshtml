@@ -1,0 +1,89 @@
+﻿@using CustomerPortal.Controllers
+@model IEnumerable<CustomerPortal.Models.YearlySalesvm>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+@*@using (Html.BeginForm("SalesReport", "Sales", FormMethod.Post))
+{
+    <fieldset>
+        <legend class="text-center glyphicon-text-color">Sales Report</legend>
+        <table class="table">
+
+            <tr>
+
+                <td> <span class="label label-primary">From Date Date:</span> </td>
+                <td>
+                    <input class="text-box single-line" id="FromDate" name="FromDate" type="datetime" value="" />
+                </td>
+                <td> <span class="label label-primary">To Date:</span> </td>
+                <td>
+                    <input class="text-box single-line" id="ToDate" name="ToDate" type="datetime" value="" />
+                </td>
+                <td> <button type="submit" class="btn btn-primary"> Search </button></td>
+            </tr>
+            <tr>
+                <td><span class="label label-primary">Daily Report</span> </td>
+                <td>
+                    <input type="radio" name="RepportType" value="Daily" aria-label="...">
+                </td>
+
+                <td><span class="label label-primary">Monthly Report</span> </td>
+                <td>
+                    <input type="radio" name="RepportType" value="Monthly" aria-label="...">
+                </td>
+
+                <td><span class="label label-primary">Yearly Report</span> </td>
+                <td>
+                    <input type="radio" name="RepportType" value="Yearly" aria-label="...">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}*@
+
+
+<table class="table table-responsive" id="Sales">
+
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Total</th>
+            <th>On Cash</th>
+            <th>On Due</th>
+            <td>Collection</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sales in Model)
+        {
+            <tr>
+                <td>@sales.Year</td>
+                <td>@sales.Total</td>
+                <td>@sales.OnCash</td>
+                <td>@sales.OnDue</td>
+                <td>@sales.Collection</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Sales").DataTable();
+
+            $('input[type=datetime]').datepicker({
+                dateFormat: "dd/M/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0",
+                onSelect: function (dateText, inst) {
+                    $("input[name='something']").val(dateText);
+                }
+            });
+        });
+    </script>
+}  

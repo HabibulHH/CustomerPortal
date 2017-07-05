@@ -144,6 +144,33 @@ namespace CustomerPortal.Controllers
 
         }
 
+    public ActionResult EditCustomer(int id)
+    {
+        var customerInDB = __context.Customers.SingleOrDefault(c => c.Id == id);
+       
+        return View(customerInDB);
+    }
+    [HttpPost]
+    public ActionResult EditCustomer(Customer customer)
+    {
+        var customerInDB = __context.Customers.SingleOrDefault(c => c.Id == customer.Id);
+        //var customerInDB = __context.Customers.ToList();
+        if (customerInDB != null)
+        {
+            customerInDB.CustomerID = customer.CustomerID;
+            customerInDB.Balance = customer.Balance;
+            customerInDB.CustomerType = customer.CustomerType;
+            customerInDB.MobileNumber = customer.MobileNumber;
+            //customerInDB.OpenDate = customer.OpenDate;
+            customerInDB.Name = customer.Name;
+            customer.Region = customer.Region;
+            __context.SaveChanges();
+
+        }
+         return RedirectToAction("ViewCustomers");
+    }
+
+
     }
 
 }
