@@ -66,5 +66,37 @@ namespace CustomerPortal.Controllers
             return  RedirectToAction("ShowAllCompany");
 
         }
+
+        public ActionResult CompanyPayment()
+        {
+            var companyList= __context.CompanyList.ToList();
+            CompanyPaymentVM vm= new CompanyPaymentVM();
+            vm.Company = companyList;
+            return View(vm);
+        }
+        [HttpPost]
+        public ActionResult CompanyPayment(CompanyPayment payment)
+        {
+            var company= __context.CompanyList.FirstOrDefault(c=>c.Id==payment.CompanyId);
+            if (company != null)
+            {
+                company.BakiAmount = company.BakiAmount - payment.Amount;
+                __context.SaveChanges();
+            }
+
+            return RedirectToAction("ShowAllCompany");
+        }
+
+        public ActionResult ShowPaymentsRecords()
+        {
+            // give necessary data
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ShowPaymentsRecords(SearchCompanyPayment payment)
+        {
+            // give necessary data
+            return View();
+        }
     }
 }

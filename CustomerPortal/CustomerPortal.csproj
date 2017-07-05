@@ -227,9 +227,19 @@
     <Compile Include="Migrations\201707051443412_companymodeladded.Designer.cs">
       <DependentUpon>201707051443412_companymodeladded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707051734453_companyPaymentVMaded.cs" />
+    <Compile Include="Migrations\201707051734453_companyPaymentVMaded.Designer.cs">
+      <DependentUpon>201707051734453_companyPaymentVMaded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051741180_companyPaymentVMaded1.cs" />
+    <Compile Include="Migrations\201707051741180_companyPaymentVMaded1.Designer.cs">
+      <DependentUpon>201707051741180_companyPaymentVMaded1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BuyingReportVM.cs" />
+    <Compile Include="Models\CompanyPayment.cs" />
+    <Compile Include="Models\CompanyPaymentVM.cs" />
     <Compile Include="Models\Compnay.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerBuyingRecord.cs" />
@@ -238,8 +248,10 @@
     <Compile Include="Models\CustomerPaymentViewModel.cs" />
     <Compile Include="Models\DailySales.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SearchCompanyPayment.cs" />
     <Compile Include="Models\SearchPayment.cs" />
     <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\ShowCompanyReportVM.cs" />
     <Compile Include="Models\ShowreportViewModel.cs" />
     <Compile Include="Models\YearlySalesvm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -727,6 +739,8 @@
     <Content Include="Views\Company\CompnayEntry.cshtml" />
     <Content Include="Views\Company\ShowAllCompany.cshtml" />
     <Content Include="Views\Company\EditCompany.cshtml" />
+    <Content Include="Views\Company\CompanyPayment.cshtml" />
+    <Content Include="Views\Company\ShowPaymentsRecords.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704210445509_customerModelAdded.resx">
@@ -761,6 +775,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707051443412_companymodeladded.resx">
       <DependentUpon>201707051443412_companymodeladded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051734453_companyPaymentVMaded.resx">
+      <DependentUpon>201707051734453_companyPaymentVMaded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051741180_companyPaymentVMaded1.resx">
+      <DependentUpon>201707051741180_companyPaymentVMaded1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

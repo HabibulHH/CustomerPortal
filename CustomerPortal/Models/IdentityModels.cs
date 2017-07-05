@@ -19,6 +19,9 @@ namespace CustomerPortal.Models
         public DbSet <CustomerBuyingRecord>  BuyingRecords{ get; set; }
         public DbSet<Compnay> CompanyList { get; set; }
         public DbSet <DailySales>DailySalesList { get; set; }
+
+        public DbSet<CompanyPayment> CompanyPayments { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
