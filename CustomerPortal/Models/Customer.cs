@@ -24,5 +24,7 @@ namespace CustomerPortal.Models
         public string CustomerType { get; set; }
         [Required]
         public DateTime OpenDate { get; set; }
+
+        public string Test { get; set; }
     }
 }

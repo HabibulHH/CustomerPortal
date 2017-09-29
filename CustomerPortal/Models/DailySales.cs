@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using CustomerPortal.Models.Validation;
 
 namespace CustomerPortal.Models
 {
@@ -11,7 +12,6 @@ namespace CustomerPortal.Models
         public int Id { get; set; }
         [Range(0, int.MaxValue, ErrorMessage = "Please enter a value bigger than {0}")]
         [Display(Name = "Total Amount")]
-       
         public double Total { get; set; }
         [Required(ErrorMessage = "Give a date")]
         public DateTime SalesDate { get; set; }

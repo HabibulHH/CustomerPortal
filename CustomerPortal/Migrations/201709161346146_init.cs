@@ -3,10 +3,44 @@ namespace CustomerPortal.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class customerModelAdded : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.CustomerBuyingRecords",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Amount = c.Double(nullable: false),
+                        BuyingDate = c.DateTime(nullable: false),
+                        BuyingCustomerId = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Compnays",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        CompanyName = c.String(nullable: false),
+                        BakiAmount = c.Double(nullable: false),
+                        MobileNumber = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.CompanyPayments",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        PaymentDate = c.DateTime(nullable: false),
+                        Amount = c.Double(nullable: false),
+                        CompanyId = c.Int(nullable: false),
+                        CompanyName = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.Customers",
                 c => new
@@ -19,6 +53,32 @@ namespace CustomerPortal.Migrations
                         MobileNumber = c.String(nullable: false),
                         CustomerType = c.String(nullable: false),
                         OpenDate = c.DateTime(nullable: false),
+                        Test = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.DailySales",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Total = c.Double(nullable: false),
+                        SalesDate = c.DateTime(nullable: false),
+                        OnCashSale = c.Double(nullable: false),
+                        OnDueSale = c.Double(nullable: false),
+                        Collection = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.CustomerPayments",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        PaymentDate = c.DateTime(nullable: false),
+                        Amount = c.Double(nullable: false),
+                        CustomerId = c.Int(nullable: false),
+                        PayingCustomerId = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -98,7 +158,12 @@ namespace CustomerPortal.Migrations
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.CustomerPayments");
+            DropTable("dbo.DailySales");
             DropTable("dbo.Customers");
+            DropTable("dbo.CompanyPayments");
+            DropTable("dbo.Compnays");
+            DropTable("dbo.CustomerBuyingRecords");
         }
     }
 }

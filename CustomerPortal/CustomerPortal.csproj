@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\CustomersController.cs" />
+    <Compile Include="Api\SalesAPIController.cs" />
     <Compile Include="Api\SalesReportAPI.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -183,57 +184,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704210445509_customerModelAdded.cs" />
-    <Compile Include="Migrations\201704210445509_customerModelAdded.Designer.cs">
-      <DependentUpon>201704210445509_customerModelAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704210458388_customerPaymentModelAdded.cs" />
-    <Compile Include="Migrations\201704210458388_customerPaymentModelAdded.Designer.cs">
-      <DependentUpon>201704210458388_customerPaymentModelAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704210504497_customerPaymentModelAdded1.cs" />
-    <Compile Include="Migrations\201704210504497_customerPaymentModelAdded1.Designer.cs">
-      <DependentUpon>201704210504497_customerPaymentModelAdded1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704210818576_customerPaymentModelAdded2.cs" />
-    <Compile Include="Migrations\201704210818576_customerPaymentModelAdded2.Designer.cs">
-      <DependentUpon>201704210818576_customerPaymentModelAdded2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704211351316_customerPaymentModelAdded3.cs" />
-    <Compile Include="Migrations\201704211351316_customerPaymentModelAdded3.Designer.cs">
-      <DependentUpon>201704211351316_customerPaymentModelAdded3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704211420274_customerPaymentModelEdited.cs" />
-    <Compile Include="Migrations\201704211420274_customerPaymentModelEdited.Designer.cs">
-      <DependentUpon>201704211420274_customerPaymentModelEdited.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704220239354_buyingRecordModelAdded.cs" />
-    <Compile Include="Migrations\201704220239354_buyingRecordModelAdded.Designer.cs">
-      <DependentUpon>201704220239354_buyingRecordModelAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704220644478_dailySalesModelAdded.cs" />
-    <Compile Include="Migrations\201704220644478_dailySalesModelAdded.Designer.cs">
-      <DependentUpon>201704220644478_dailySalesModelAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704220650114_dailySalesModelAdded1.cs" />
-    <Compile Include="Migrations\201704220650114_dailySalesModelAdded1.Designer.cs">
-      <DependentUpon>201704220650114_dailySalesModelAdded1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707010658517_InitialMigrations.cs" />
-    <Compile Include="Migrations\201707010658517_InitialMigrations.Designer.cs">
-      <DependentUpon>201707010658517_InitialMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707051443412_companymodeladded.cs" />
-    <Compile Include="Migrations\201707051443412_companymodeladded.Designer.cs">
-      <DependentUpon>201707051443412_companymodeladded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707051734453_companyPaymentVMaded.cs" />
-    <Compile Include="Migrations\201707051734453_companyPaymentVMaded.Designer.cs">
-      <DependentUpon>201707051734453_companyPaymentVMaded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707051741180_companyPaymentVMaded1.cs" />
-    <Compile Include="Migrations\201707051741180_companyPaymentVMaded1.Designer.cs">
-      <DependentUpon>201707051741180_companyPaymentVMaded1.cs</DependentUpon>
+    <Compile Include="Migrations\201709161346146_init.cs" />
+    <Compile Include="Migrations\201709161346146_init.Designer.cs">
+      <DependentUpon>201709161346146_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -247,12 +200,16 @@
     <Compile Include="Models\CustomerPayment.cs" />
     <Compile Include="Models\CustomerPaymentViewModel.cs" />
     <Compile Include="Models\DailySales.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IdentityModels.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\SearchCompanyPayment.cs" />
     <Compile Include="Models\SearchPayment.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\ShowCompanyReportVM.cs" />
     <Compile Include="Models\ShowreportViewModel.cs" />
+    <Compile Include="Models\Validation\TotalCashValidator.cs" />
+    <Compile Include="Models\VendorPayment.cs" />
     <Compile Include="Models\YearlySalesvm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -629,6 +586,16 @@
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
     <None Include="Properties\PublishProfiles\CustomerPortal.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomerPortalApp.pubxml" />
+    <None Include="Properties\PublishProfiles\koxa - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\koxa - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\koxa.pubxml" />
+    <None Include="Properties\PublishProfiles\texasecond - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\texasecond - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\texasecond - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\texasecond - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\texasecond.pubxml" />
+    <None Include="Properties\PublishProfiles\toxa.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -701,12 +668,15 @@
     <Content Include="Time\js\locales\bootstrap-datetimepicker.uk.js" />
     <Content Include="Time\js\locales\bootstrap-datetimepicker.zh-CN.js" />
     <Content Include="Time\js\locales\bootstrap-datetimepicker.zh-TW.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -741,53 +711,17 @@
     <Content Include="Views\Company\EditCompany.cshtml" />
     <Content Include="Views\Company\CompanyPayment.cshtml" />
     <Content Include="Views\Company\ShowPaymentsRecords.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704210445509_customerModelAdded.resx">
-      <DependentUpon>201704210445509_customerModelAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704210458388_customerPaymentModelAdded.resx">
-      <DependentUpon>201704210458388_customerPaymentModelAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704210504497_customerPaymentModelAdded1.resx">
-      <DependentUpon>201704210504497_customerPaymentModelAdded1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704210818576_customerPaymentModelAdded2.resx">
-      <DependentUpon>201704210818576_customerPaymentModelAdded2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704211351316_customerPaymentModelAdded3.resx">
-      <DependentUpon>201704211351316_customerPaymentModelAdded3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704211420274_customerPaymentModelEdited.resx">
-      <DependentUpon>201704211420274_customerPaymentModelEdited.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704220239354_buyingRecordModelAdded.resx">
-      <DependentUpon>201704220239354_buyingRecordModelAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704220644478_dailySalesModelAdded.resx">
-      <DependentUpon>201704220644478_dailySalesModelAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704220650114_dailySalesModelAdded1.resx">
-      <DependentUpon>201704220650114_dailySalesModelAdded1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707010658517_InitialMigrations.resx">
-      <DependentUpon>201707010658517_InitialMigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707051443412_companymodeladded.resx">
-      <DependentUpon>201707051443412_companymodeladded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707051734453_companyPaymentVMaded.resx">
-      <DependentUpon>201707051734453_companyPaymentVMaded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707051741180_companyPaymentVMaded1.resx">
-      <DependentUpon>201707051741180_companyPaymentVMaded1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="Views\Sales\EditSales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709161346146_init.resx">
+      <DependentUpon>201709161346146_init.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

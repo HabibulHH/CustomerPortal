@@ -7,13 +7,14 @@
         {
 
             <table class="table table-responsive">
-                <caption>Search Customers Payment</caption>
+                <caption>Search Company Payments</caption>
                 <tr>
 
                     <td> <label for="">Company Name</label></td>
                     <td>
                         @Html.DropDownListFor(m => m.searchPayment.CompanyId,
-                            new SelectList(Model.Compnays, "Id", "CompanyName"), "Select Company Name"
+                            new SelectList(Model.Compnays, "Id", "CompanyName"), "Select CompanyName",
+                          new { @class = "form-control" }
                             )
                 </td>
             </tr>
@@ -47,17 +48,19 @@
 </h1>
 <table id="paymentRecords" class="table table-bordered table-hover">
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>Amount</th>
-            <th>Date</th>
-        </tr>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
     </thead>
     <tbody>
         @foreach (var payment in Model.companysPayments)
         {
             <tr>
                 <td>@payment.CompanyId</td>
+                <td>@payment.CompanyName</td>
                 <td>@payment.Amount</td>
                 <td>@payment.PaymentDate</td>
             </tr>

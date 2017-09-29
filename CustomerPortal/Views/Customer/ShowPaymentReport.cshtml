@@ -12,7 +12,8 @@
 
                     <td> <label for="Customer_Table_Id">Customer Id</label></td>
                     <td>@Html.DropDownListFor(m => m.searchPayment.PayingCustomerId,
-                            new SelectList(Model.Customers, "CustomerID", "CustomerID"), "Select Customer ID"
+                     new SelectList(Model.Customers, "CustomerID", "CustomerID"), "Select Customer ID",
+                 new { @class = "form-control" }
                             )</td>
                 </tr>
                 <tr>

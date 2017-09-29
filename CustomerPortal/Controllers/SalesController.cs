@@ -4,6 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Antlr.Runtime.Tree;
 using CustomerPortal.Models;
 
 namespace CustomerPortal.Controllers
@@ -27,7 +28,7 @@ namespace CustomerPortal.Controllers
         {
             __context.DailySalesList.Add(sales);
             __context.SaveChanges();
-           return RedirectToAction("DailySalesEntry", "Sales");
+            return RedirectToAction("SalesReport", "Sales");
         }
         [HttpGet]
         public ActionResult SalesReport()
@@ -40,7 +41,9 @@ namespace CustomerPortal.Controllers
         [HttpPost]
         public ActionResult SalesReport(Settings settings)
         {
-
+            settings.RepportType = (settings.RepportType == null || settings.RepportType.Equals(""))
+                ? "Daily"
+                : settings.RepportType;
             if (settings.RepportType.Equals("Daily"))
             {
                 var sales = __context.DailySalesList.
@@ -97,6 +100,30 @@ namespace CustomerPortal.Controllers
 
             //IEnumerable<YearlySalesvm> records = listOFrec.ToList<YearlySalesvm>();
              return View(listOFrec);
+        }
+        
+        public ActionResult EditSales(int Id)
+        {
+            var salesIndb = __context.DailySalesList.SingleOrDefault(c => c.Id == Id);
+            return View(salesIndb);
+            //return RedirectToAction("SalesReport", "Sales");
+        }
+        [HttpPost]
+        public ActionResult EditSales(DailySales sales)
+        {
+            var salesIndb = __context.DailySalesList.SingleOrDefault(c => c.Id == sales.Id);
+            if (salesIndb != null)
+            {
+                salesIndb.OnCashSale = sales.OnCashSale;
+                salesIndb.Total = sales.Total;
+                salesIndb.OnDueSale = sales.OnDueSale;
+                salesIndb.Collection = sales.Collection;
+                salesIndb.SalesDate = sales.SalesDate;
+
+                __context.SaveChanges();
+            }
+            return RedirectToAction("SalesReport", "Sales");
+            //return RedirectToAction("SalesReport", "Sales");
         }
     }
 }

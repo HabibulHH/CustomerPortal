@@ -9,7 +9,7 @@ namespace CustomerPortal.Controllers
 {   [Authorize]
     public class CustomerController : Controller
     {
-        private ApplicationDbContext __context;
+    private ApplicationDbContext __context;
 
         public CustomerController()
         {

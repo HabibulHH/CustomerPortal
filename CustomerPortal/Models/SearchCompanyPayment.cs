@@ -11,6 +11,6 @@ namespace CustomerPortal.Models
 
         public DateTime EndDate { get; set; }
 
-        public string CompanyId { get; set; }
+        public int CompanyId { get; set; }
     }
 }

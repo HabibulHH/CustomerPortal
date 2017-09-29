@@ -9,7 +9,7 @@ namespace CustomerPortal.Controllers
 {
     public class CompanyController : Controller
     {
-        private  ApplicationDbContext __context = new ApplicationDbContext();
+        private ApplicationDbContext __context = new ApplicationDbContext();
         //
         // GET: /Company/
         public ActionResult CompnayEntry()
@@ -66,7 +66,7 @@ namespace CustomerPortal.Controllers
             return  RedirectToAction("ShowAllCompany");
 
         }
-
+        [HttpGet]
         public ActionResult CompanyPayment()
         {
             var companyList= __context.CompanyList.ToList();
@@ -82,6 +82,9 @@ namespace CustomerPortal.Controllers
             {
                 company.BakiAmount = company.BakiAmount - payment.Amount;
                 __context.SaveChanges();
+                payment.CompanyName = company.CompanyName;
+                __context.CompanyPayments.Add(payment);
+                __context.SaveChanges();
             }
 
             return RedirectToAction("ShowAllCompany");
@@ -89,14 +92,31 @@ namespace CustomerPortal.Controllers
 
         public ActionResult ShowPaymentsRecords()
         {
-            // give necessary data
-            return View();
+            var company = __context.CompanyList.ToList();
+            ShowCompanyReportVM vm= new ShowCompanyReportVM();
+            vm.Compnays = company;
+            var payments = __context.CompanyPayments.ToList();
+            vm.companysPayments = payments;
+             // give necessary data
+            return View(vm);
         }
         [HttpPost]
-        public ActionResult ShowPaymentsRecords(SearchCompanyPayment payment)
+        public ActionResult ShowPaymentsRecords(ShowCompanyReportVM paymentreportVM)
         {
-            // give necessary data
-            return View();
+
+            var payment = paymentreportVM.searchPayment;
+            int ID = Convert.ToInt32(payment.CompanyId);
+            var payments = __context.CompanyPayments.
+                Where(c => c.CompanyId==payment.CompanyId &&
+                           (c.PaymentDate >= payment.StartDate && c.PaymentDate <= payment.EndDate)).
+                OrderByDescending(c => c.PaymentDate).ToList();
+
+            var company = __context.CompanyList.ToList();
+            ShowCompanyReportVM vm = new ShowCompanyReportVM();
+            vm.Compnays = company;
+            vm.companysPayments = payments;
+            
+            return View(vm);
         }
     }
 }

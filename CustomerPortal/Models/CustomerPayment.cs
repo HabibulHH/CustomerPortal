@@ -12,6 +12,7 @@ namespace CustomerPortal.Models
         [Required(ErrorMessage = "Enter Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime PaymentDate { get; set; }
+
         [Required (ErrorMessage = "Give amount")]
         public double Amount { get; set; }
         [Required(ErrorMessage = "Give id")]

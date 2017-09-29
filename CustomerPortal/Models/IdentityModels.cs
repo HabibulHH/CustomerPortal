@@ -12,19 +12,20 @@ namespace CustomerPortal.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet <Customer> Customers { get; set; }
-
-        public DbSet<CustomerPayment> Payments { get; set; }
-
-        public DbSet <CustomerBuyingRecord>  BuyingRecords{ get; set; }
-        public DbSet<Compnay> CompanyList { get; set; }
-        public DbSet <DailySales>DailySalesList { get; set; }
-
-        public DbSet<CompanyPayment> CompanyPayments { get; set; }
+        
 
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
         }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerPayment> Payments { get; set; }
+        public DbSet<CustomerBuyingRecord> BuyingRecords { get; set; }
+        public DbSet<Compnay> CompanyList { get; set; }
+        public DbSet<DailySales> DailySalesList { get; set; }
+        public DbSet<CompanyPayment> CompanyPayments { get; set; }
+  
+
+
     }
 }

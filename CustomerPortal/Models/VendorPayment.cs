@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CustomerPortal.Models
 {
-    public class CompanyPayment
+    public class VendorPayment
     {
         public int Id { get; set; }
 
@@ -18,8 +18,9 @@ namespace CustomerPortal.Models
         public double Amount { get; set; }
 
         [Required(ErrorMessage = "Please enter a name")]
+        public string CompanyName { get; set; }
         public int CompanyId { get; set; }
 
-        public string CompanyName { get; set; }
+        
     }
 }

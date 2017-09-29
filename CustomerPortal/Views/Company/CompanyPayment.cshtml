@@ -35,7 +35,7 @@
                     @Html.EditorFor(model => model.Payment.PaymentDate, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Payment.PaymentDate)
                 </div>
-
+                //<input type="hidden" name="CompanyName" id="CompanyName" value="@Model.Company.">
                 <input type="submit" class="btn btn-success" id="save" value="Save" name="save" />
             }
         </div>

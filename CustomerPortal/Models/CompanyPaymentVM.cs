@@ -8,6 +8,6 @@ namespace CustomerPortal.Models
     public class CompanyPaymentVM
     {
         public List<Compnay> Company { get; set; }
-        public CompanyPayment Payment { get; set; }
+        public VendorPayment Payment { get; set; }
     }
 }
